@@ -1,6 +1,6 @@
 class UsersPlaylists < ActiveRecord::Migration
   def up
-    create table :user_playlists do |t|
+    create_table :user_playlists do |t|
       t.integer :song_id
       t.integer :user_id
       t.integer :list_following_id
@@ -8,6 +8,6 @@ class UsersPlaylists < ActiveRecord::Migration
 end
 
   def down
-    drop table :user_playlist
+    drop_table :user_playlist
   end
 end

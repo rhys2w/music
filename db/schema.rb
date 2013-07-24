@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723234631) do
+ActiveRecord::Schema.define(version: 20130724001018) do
+
+  create_table "list_followings", force: true do |t|
+    t.integer "playlist_id"
+    t.integer "user_playlist_id"
+    t.integer "user_id"
+  end
 
   create_table "playlists", force: true do |t|
     t.string  "listtitle"
@@ -23,6 +29,17 @@ ActiveRecord::Schema.define(version: 20130723234631) do
     t.string  "artist"
     t.integer "playlist_id"
     t.integer "user_id"
+  end
+
+  create_table "user_followings", force: true do |t|
+    t.integer "user_id"
+    t.integer "user_following_id"
+  end
+
+  create_table "user_playlists", force: true do |t|
+    t.integer "song_id"
+    t.integer "user_id"
+    t.integer "list_following_id"
   end
 
   create_table "users", force: true do |t|
